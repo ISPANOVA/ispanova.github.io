@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تصميم من زجاج · Zujaj design</title>
+<meta property="og:title" content="تصميم ويدجت من زجاج · A Zujaj widget design">
+<meta property="og:description" content="افتحه في زجاج وعدّل عليه · Open it in Zujaj and make it yours">
+<link rel="stylesheet" href="style.css">
+<style>
+ body{min-height:100vh;display:flex;align-items:center;justify-content:center;margin:0;padding:24px;box-sizing:border-box}
+ .card{max-width:420px;width:100%;text-align:center;padding:34px 24px;border-radius:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(20px)}
+ .logo{width:84px;height:84px;margin:0 auto 18px;border-radius:26px;display:flex;align-items:center;justify-content:center;font-size:46px;color:#fff;
+   background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.45);box-shadow:0 0 60px rgba(231,183,95,.45)}
+ h1{margin:0 0 8px;font-size:26px} p{opacity:.75;margin:0 0 24px;line-height:1.6}
+ .btn{display:block;padding:16px;border-radius:999px;font-weight:700;text-decoration:none;margin:10px 0;color:#14110a;
+   background:linear-gradient(90deg,#e7b75f,#d9a24a);box-shadow:0 8px 40px rgba(231,183,95,.45)}
+ .ghost{background:rgba(255,255,255,.08);color:inherit;box-shadow:none;border:1px solid rgba(255,255,255,.12)}
+ .en{direction:ltr;opacity:.6;font-size:13px;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="card">
+ <div class="logo">ز</div>
+ <h1>حد بعتلك تصميم ويدجت</h1>
+ <p>افتحه في زجاج وهيبقى عندك بنفس الألوان والخطوط، وتقدر تعدّل عليه وتحطه على شاشتك.</p>
+ <a class="btn" id="open" href="#">افتح في زجاج</a>
+ <a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.smrh.zujaj">نزّل زجاج من جوجل بلاي</a>
+ <div class="en">Someone shared a widget design with you — open it in Zujaj to make it yours.</div>
+</div>
+<script>
+ var code = location.hash.slice(1);
+ var store = "https://play.google.com/store/apps/details?id=com.smrh.zujaj";
+ var link = code ? "intent://w/" + code + "#Intent;scheme=zujaj;package=com.smrh.zujaj;S.browser_fallback_url=" + encodeURIComponent(store) + ";end" : store;
+ document.getElementById("open").href = link;
+ if (code && /Android/i.test(navigator.userAgent)) setTimeout(function(){ location.href = link; }, 350);
+</script>
+</body>
+</html>
